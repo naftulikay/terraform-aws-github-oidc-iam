@@ -1,4 +1,4 @@
-# terraform-aws-github-oidc-iam [![Build Status][build.svg]][build]
+# terraform-aws-github-oidc-iam [![Build Status][build.svg]][build] [![Module][module.svg]][module]
 
 A Terraform module for AWS which sets up an IAM OpenID Connect Provider for GitHub and GitHub Actions.
 
@@ -131,3 +131,5 @@ Licensed at your discretion under either:
 
  [build]:     https://github.com/naftulikay/terraform-aws-github-oidc-iam/actions/workflows/terraform.yml
  [build.svg]: https://github.com/naftulikay/terraform-aws-github-oidc-iam/actions/workflows/terraform.yml/badge.svg
+ [module]:     https://registry.terraform.io/modules/naftulikay/github-oidc-iam/aws/latest
+ [module.svg]: https://img.shields.io/badge/terraform-module-purple
