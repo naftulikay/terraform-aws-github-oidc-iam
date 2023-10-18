@@ -129,6 +129,5 @@ Licensed at your discretion under either:
  - [Apache Software License, Version 2.0](./LICENSE-APACHE)
  - [MIT License](./LICENSE-MIT)
 
- [build]: a
- [build.svg]: b
- [tf-aws-iam-openid-connect-provider]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_openid_connect_provider
+ [build]:     https://github.com/naftulikay/terraform-aws-github-oidc-iam/actions/workflows/terraform.yml
+ [build.svg]: https://github.com/naftulikay/terraform-aws-github-oidc-iam/actions/workflows/terraform.yml/badge.svg
