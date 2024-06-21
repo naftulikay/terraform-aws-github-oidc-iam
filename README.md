@@ -6,6 +6,17 @@ A Terraform module for AWS which sets up an IAM OpenID Connect Provider for GitH
  - [Module Docs: Variables](/docs/VARIABLES.md)
  - [Module Docs: Outputs](/docs/OUTPUTS.md)
 
+## ⚠️ Safety ⚠️
+
+When defining IAM assume role policies using an OIDC provider, such as one offered by this module, care must be taken
+to ensure that the structure of the `:sub` field is correct. Misconfiguration can lead to situations where the role
+can be assumed by entities other than expected. [Datadog details this issue on their blog][datadog-blog].
+
+This module is, on its own, _not vulnerable to this issue_, because the onus is on the user to define IAM policy which
+specifies the conditions where role assumption is allowed/denied. In short, when defining role assumption policy, be
+sure to write validation tests to assert that the format of the `:sub` field is exactly what you expect, and either
+avoid wildcards altogether or use them sparingly.
+
 ## Usage
 
 This module should work out-of-the-box with no configuration required, unless one or more of the following cases hold
@@ -57,6 +68,7 @@ data aws_iam_policy_document assume {
       variable = "token.actions.githubusercontent.com:sub"
       # allow any github actions in any branch in https://github.com/${var.github_organization}/${var.github_repository}
       # to assume this role
+      # SAFETY you must ensure that the values of these variables are not empty and do not contain wildcards
       values = ["repo:${var.github_organization}/${var.github_repository}:*"]
     }
   }
@@ -133,3 +145,5 @@ Licensed at your discretion under either:
  [build.svg]: https://github.com/naftulikay/terraform-aws-github-oidc-iam/actions/workflows/terraform.yml/badge.svg
  [module]:     https://registry.terraform.io/modules/naftulikay/github-oidc-iam/aws/latest
  [module.svg]: https://img.shields.io/badge/terraform-module-purple
+ [datadog-blog]: https://securitylabs.datadoghq.com/articles/exploring-github-to-aws-keyless-authentication-flaws/
+ [aws-gh-oidc]: https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
