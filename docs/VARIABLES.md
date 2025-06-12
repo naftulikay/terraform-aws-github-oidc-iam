@@ -29,10 +29,13 @@ A set of thumbprints by which to verify OIDC access attempts.
 
 By default, this variable is set to an empty set, and when this is the case, this will be detected at runtime using the
 [`tls` provider's][tls-provider] [`tls_certificate`][tf-tls-certificate] data provider, grabbing the SHA-1 fingerprint
-of the server running at `url`.
+of the top-most intermediate CA certificate located at `url`.
 
 Changing this to any other value will use the user-specified values. This is entirely untested, and if you aren't using
 GitHub Enterprise, you shouldn't change/set this variable.
+
+See the AWS documentation on this topic:
+- https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html
 
 > **Default**: `[]` (empty set)
 
