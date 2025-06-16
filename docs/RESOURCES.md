@@ -15,8 +15,9 @@ This resource will be created with the following arguments:
  - [`client_id_list`][arg-client-id] will be set to a list containing `sts.amazonaws.com`, which is the default host for
    AWS' **S**ecurity **T**oken **S**ervice.
  - [`tags`][arg-tags] will be set to the value of `var.tags`.
- - [`thumbprint_list`][arg-thumbprint-list] will be set to a single-entry list containing the SHA-1 TLS certificate
-   fingerprint for `token.actions.githubusercontent.com`, which is detected dynamically.
+ - [`thumbprint_list`][arg-thumbprint-list]: if `var.thumbprint_list` is set, these values will be used; otherwise
+   the top-most intermediate CA certificate for `token.actions.githubusercontent.com` will be detected by Terraform
+   dynamically.
 
 These arguments can be reconfigured using [module variables](/docs/VARIABLES.md).
 
