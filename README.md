@@ -37,7 +37,7 @@ generate a role assumption policy, and create an IAM role without any permission
 # create the github actions oidc iam provider
 module github_oidc_iam {
   source  = "naftulikay/github-oidc-iam/aws"
-  version = "1.0.0"
+  version = "1.1.0"
 }
 
 # TODO set these to your GitHub org and repo name
