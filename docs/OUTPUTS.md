@@ -29,7 +29,7 @@ The URL of the `aws_iam_openid_connect_provider` resource.
 
 This is a direct output, and is not a reflection of input variables.
 
-## `server_cert_sha1`: `string`
+## `oidc_server_cert_sha1`: `string`
 
 The SHA-1 fingerprint of the final TLS certificate in the chain obtained from `var.url`.
 
