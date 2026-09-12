@@ -16,7 +16,7 @@ output oidc_provider_url {
   value = aws_iam_openid_connect_provider.default.url
 }
 
-output server_cert_sha1 {
+output oidc_server_cert_sha1 {
   value = local.github_oidc_fingerprint
 }
 

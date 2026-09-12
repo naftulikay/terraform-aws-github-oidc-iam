@@ -47,4 +47,9 @@ variable url {
     You shouldn't need to modify the value of this variable unless you are using GitHub Enterprise. Support for GitHub
     Enterprise is entirely untested.
   EOF
+
+  validation {
+    condition = can(regex("^https://[^/]+$", var.url))
+    error_message = "var.url must be an https:// origin with no path or trailing slash (e.g. https://token.actions.githubusercontent.com)"
+  }
 }
